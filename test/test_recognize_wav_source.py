@@ -30,12 +30,11 @@ from ovos_stt_plugin_pocketsphinx.recognizer import PocketSphinxRecognizer
 
 def _wave_file(frames=8000):
     path = os.path.join(tempfile.mkdtemp(prefix="t4183-"), "a.wav")
-    handle = wave.open(path, "wb")
-    handle.setnchannels(1)
-    handle.setsampwidth(2)
-    handle.setframerate(16000)
-    handle.writeframes(struct.pack(f"<{frames}h", *([0] * frames)))
-    handle.close()
+    with wave.open(path, "wb") as handle:
+        handle.setnchannels(1)
+        handle.setsampwidth(2)
+        handle.setframerate(16000)
+        handle.writeframes(struct.pack(f"<{frames}h", *([0] * frames)))
     return path
 
 
