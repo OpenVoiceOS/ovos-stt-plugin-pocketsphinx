@@ -1,7 +1,8 @@
-import speech_recognition as sr
 import os
-from os.path import join, isdir, dirname, isfile
-from pocketsphinx import Jsgf, FsgModel, Decoder, get_model_path
+from os.path import isdir, isfile, join
+
+import speech_recognition as sr
+from pocketsphinx import Decoder, FsgModel, Jsgf, get_model_path
 
 
 class PocketSphinxRecognizer:
@@ -13,17 +14,15 @@ class PocketSphinxRecognizer:
         if not isdir(acoustic_parameters_directory):
             raise sr.RequestError(
                 "missing PocketSphinx language model parameters directory: "
-                "\"{}\"".format(acoustic_parameters_directory))
+                f"\"{acoustic_parameters_directory}\"")
 
         if not isfile(language_model_file):
             raise sr.RequestError(
-                "missing PocketSphinx language model file: \"{}\"".format(
-                    language_model_file))
+                f"missing PocketSphinx language model file: \"{language_model_file}\"")
 
         if not isfile(phoneme_dictionary_file):
             raise sr.RequestError(
-                "missing PocketSphinx phoneme dictionary file: \"{}\"".format(
-                    phoneme_dictionary_file))
+                f"missing PocketSphinx phoneme dictionary file: \"{phoneme_dictionary_file}\"")
 
         # create decoder object
         self.decoder = Decoder(hmm=acoustic_parameters_directory,
@@ -45,8 +44,7 @@ class PocketSphinxRecognizer:
         assert isinstance(audio_data,
                           sr.AudioData), "``audio_data`` must be audio data"
         assert keyword_entries is None or all(
-            isinstance(keyword,
-                       (type(""), type(u""))) and 0 <= sensitivity <= 1
+            isinstance(keyword, str) and 0 <= sensitivity <= 1
             for keyword, sensitivity in
             keyword_entries), "``keyword_entries`` must be ``None`` or" \
                               " a list of pairs of strings and " \
@@ -59,7 +57,7 @@ class PocketSphinxRecognizer:
             with sr.PortableNamedTemporaryFile("w") as f:
                 # generate a keywords file
                 f.writelines(
-                    "{} /1e{}/\n".format(keyword, 100 * sensitivity - 110)
+                    f"{keyword} /1e{100 * sensitivity - 110}/\n"
                     for keyword, sensitivity in keyword_entries)
                 f.flush()
                 # perform the speech recognition with the keywords file
@@ -72,14 +70,14 @@ class PocketSphinxRecognizer:
         elif grammar is not None:  # a path to a FSG or JSGF grammar
             if not os.path.exists(grammar):
                 raise ValueError(
-                    "Grammar '{0}' does not exist.".format(grammar))
+                    f"Grammar '{grammar}' does not exist.")
             grammar_path = os.path.abspath(os.path.dirname(grammar))
             grammar_name = os.path.splitext(os.path.basename(grammar))[0]
-            fsg_path = "{0}/{1}.fsg".format(grammar_path, grammar_name)
+            fsg_path = f"{grammar_path}/{grammar_name}.fsg"
             if not os.path.exists(
                     fsg_path):  # create FSG grammar if not available
                 jsgf = Jsgf(grammar)
-                rule = jsgf.get_rule("{0}.{0}".format(grammar_name))
+                rule = jsgf.get_rule(f"{grammar_name}.{grammar_name}")
                 fsg = jsgf.build_fsg(rule, self.decoder.get_logmath(), 7.5)
                 fsg.writefile(fsg_path)
             else:
