@@ -101,9 +101,32 @@ class PocketSphinxRecognizer:
             return hypothesis.hypstr
         raise sr.UnknownValueError()  # no transcriptions available
 
-    def recognize_wav(self, file_path, keyword_entries=None, grammar=None):
-        r = sr.Recognizer()
+    @staticmethod
+    def read_wave_file(file_path):
+        """Read a wave file through whichever source class is installed.
+
+        ovos-plugin-manager replaces ``speech_recognition.AudioFile`` with
+        its own class (``ovos_plugin_manager.utils.audio``) from 2.2 on, and
+        importing this package installs that replacement: the plugin's
+        ``__init__`` imports ``ovos_plugin_manager.templates.stt``, which
+        pulls it in. The replacement does not subclass
+        ``speech_recognition.AudioSource``, which is exactly what
+        ``Recognizer.record()`` asserts, so ``record()`` refuses the source
+        it is handed and raises "Source must be an audio source". The
+        replacement reads the stream itself instead.
+
+        This package declares ``ovos-plugin-manager>=0.0.1a7`` with no upper
+        bound, so both source classes are in range. The test is therefore
+        for the property ``record()`` checks, not for a version.
+
+        Same fix as ovos-microphone-plugin-files#26, same upstream cause.
+        """
         with sr.AudioFile(file_path) as source:
-            audio = r.record(source)
+            if isinstance(source, sr.AudioSource):
+                return sr.Recognizer().record(source)
+            return source.read()
+
+    def recognize_wav(self, file_path, keyword_entries=None, grammar=None):
+        audio = self.read_wave_file(file_path)
         return self.recognize(audio, keyword_entries, grammar)
 
