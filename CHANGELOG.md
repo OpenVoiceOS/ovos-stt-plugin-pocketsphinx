@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1a2](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.1a2) (2026-09-26)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/0.2.1a1...0.2.1a2)
+
+**Merged pull requests:**
+
+- Configure Renovate [\#6](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/6) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.2.1a1](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.1a1) (2026-09-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/0.2.0a2...0.2.1a1)
