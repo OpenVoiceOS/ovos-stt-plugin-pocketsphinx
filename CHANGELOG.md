@@ -1,18 +1,26 @@
 # Changelog
 
-## [0.2.0a2](https://github.com/OVOSHatchery/ovos-stt-plugin-pocketsphinx/tree/0.2.0a2) (2026-08-15)
+## [0.2.1a1](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.1a1) (2026-09-26)
 
-[Full Changelog](https://github.com/OVOSHatchery/ovos-stt-plugin-pocketsphinx/compare/8462ea3a94f54f318ef66896dfd7aabb70b5145d...0.2.0a2)
-
-**Implemented enhancements:**
-
-- bump pocketsphinx [\#3](https://github.com/OVOSHatchery/ovos-stt-plugin-pocketsphinx/pull/3) ([JarbasAl](https://github.com/JarbasAl))
-- move ui data to "meta" [\#2](https://github.com/OVOSHatchery/ovos-stt-plugin-pocketsphinx/pull/2) ([JarbasAl](https://github.com/JarbasAl))
-- feat/plugin\_configs [\#1](https://github.com/OVOSHatchery/ovos-stt-plugin-pocketsphinx/pull/1) ([NeonJarbas](https://github.com/NeonJarbas))
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/0.2.0a2...0.2.1a1)
 
 **Merged pull requests:**
 
-- fix: port to pocketsphinx 5 for current Python versions [\#4](https://github.com/OVOSHatchery/ovos-stt-plugin-pocketsphinx/pull/4) ([JarbasAl](https://github.com/JarbasAl))
+- fix\(lint\): clear the 14 ruff findings and the 2 stale actions that redden lint [\#8](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/8) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
+## [0.2.0a2](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.0a2) (2026-08-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/8462ea3a94f54f318ef66896dfd7aabb70b5145d...0.2.0a2)
+
+**Implemented enhancements:**
+
+- bump pocketsphinx [\#3](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/3) ([JarbasAl](https://github.com/JarbasAl))
+- move ui data to "meta" [\#2](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/2) ([JarbasAl](https://github.com/JarbasAl))
+- feat/plugin\_configs [\#1](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/1) ([NeonJarbas](https://github.com/NeonJarbas))
+
+**Merged pull requests:**
+
+- fix: port to pocketsphinx 5 for current Python versions [\#4](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/4) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
