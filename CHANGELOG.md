@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1a4](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.1a4) (2026-10-28)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/0.2.1a3...0.2.1a4)
+
+**Merged pull requests:**
+
+- test: cover the three RequestError branches and the recognize branches [\#9](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/9) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.1a3](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.1a3) (2026-10-28)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/0.2.1a2...0.2.1a3)
