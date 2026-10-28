@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1a3](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.1a3) (2026-10-28)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/0.2.1a2...0.2.1a3)
+
+**Merged pull requests:**
+
+- test: cover the error branches of recognizer.py [\#15](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/pull/15) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.1a2](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/tree/0.2.1a2) (2026-09-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx/compare/0.2.1a1...0.2.1a2)
